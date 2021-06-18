@@ -48,3 +48,17 @@ Default value for a method can be passed as below.
 But if we set any arg as default then we need to set default values for all the args till the last arg, as compiler will not be able to recognize.<br>
 Else name the args while calling the method.
 
+#### Syntax Sugar
+1. Infix notation works for methods with one param
+2. unary or prefix notation is only allowed for +, - , ~, !
+3. Postfix notation is for methods with no parameters.
+4. Apply method allow you to call the objects like they are functions
+
+#### Genereics
+1. Covariance : `val animalList: CovariantList[Animal] = new CovariantList[Cat]`
+2. InVariance : `val invariantAnimalList: InvariantList[Animal] = new InvariantList[Animal]`
+3. Contravariance : `val trainer: Trainer[Cat] = new Trainer[Animal]`
+
+Bounded Type
+1. B >:A :- B is a superset of A
+2. B <:A :- B is a subset of A
