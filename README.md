@@ -62,3 +62,10 @@ Else name the args while calling the method.
 Bounded Type
 1. B >:A :- B is a superset of A
 2. B <:A :- B is a subset of A
+
+#### Pattern Matching
+1. If multiple case patterns have same expression, only the first one will return
+2. Cases are matched in order
+3. What if no cases match? MatchError
+4. Type of the PM expression? unified type of all the types in all the cases
+5. PM works really well with case classes*

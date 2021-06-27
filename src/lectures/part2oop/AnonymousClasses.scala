@@ -35,6 +35,7 @@ object AnonymousClasses extends App {
         - map(transformer) => MyList
         - filter(predicate) => MyList
         - flatMap(transformer from A to MyList[B]) => MyList[B]
+
         class EvenPredicate extends MyPredicate[Int]
         class StringToIntTransformer extends MyTransformer[String, Int]
         [1,2,3].map(n * 2) = [2,4,6]
