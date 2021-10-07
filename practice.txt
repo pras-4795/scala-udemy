@@ -29,3 +29,38 @@ def isPrime(num: Int): Boolean = {
 }
 
 println(isPrime(33))
+
+// recursive functions
+def concatenateNTimes(theString: String, n: Int): String = {
+  def concatenateHelper(n: Int, acc: String): String = {
+    if(n==1) acc
+    else concatenateHelper(n-1, acc + theString)
+  }
+  
+  concatenateHelper(n, theString)
+}
+
+println(concatenateNTimes("hi",1))
+
+def isPrime(n: Int): Boolean = {
+  def isPrimeHelper(t: Int, isStillPrime: Boolean): Boolean = {
+    if(!isStillPrime) false
+    else if(t <=1) true
+    else isPrimeHelper(t-1, n%t != 0 && isStillPrime)
+  }
+  
+  isPrimeHelper(n/2, true)
+}
+
+println(isPrime(15))
+
+def fibanoci(n: Int): Int = {
+  def fibanociHelper(t: Int, acc1: Int, acc2: Int): Int = {
+    if(t >= n) acc1 + acc2
+    else fibanociHelper(t+1, acc1+acc2, acc1)
+  }
+  if(n<2) 1
+  else fibanociHelper(3,1,1)
+}
+
+println(fibanoci(8))
