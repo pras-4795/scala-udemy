@@ -31,6 +31,7 @@ def isPrime(num: Int): Boolean = {
 println(isPrime(33))
 
 // recursive functions
+
 def concatenateNTimes(theString: String, n: Int): String = {
   def concatenateHelper(n: Int, acc: String): String = {
     if(n==1) acc
@@ -64,6 +65,8 @@ def fibanoci(n: Int): Int = {
 }
 
 println(fibanoci(8))
+
+// OOPS
 
 class Novel(name: String, yearOfRelease: Int, author: Writer) {
   def authorAge: Int = yearOfRelease - author.year
@@ -105,3 +108,20 @@ counter.inc.print
 counter.inc.inc.inc.print
 counter.inc(10).print
 
+// Syntax sugar
+class Person(val name: String, favMovie: String, val age: Int = 0) {
+  def +(value: String): Person = new Person(s"$name ($value)", favMovie)
+  def apply(): String = s"Hi, my name is $name and I like $favMovie"
+  
+  def unary_+ : Person = new Person(s"$name", favMovie, age + 1)
+  def learns(subj: String): String = s"$name learns $subj"
+  def learnScala : String = this learns "Scala" // postfix
+  def apply(n: Int): String = s"$name watched $favMovie $n times"
+}
+
+val mary = new Person("Mary", "Inception")
+println((mary + "the rockstar").apply()) // Infix
+println((+mary).age) // Prefix
+println(mary.learns("java"))
+println(mary.learnScala)
+println(mary(2))
