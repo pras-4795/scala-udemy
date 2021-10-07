@@ -1,0 +1,31 @@
+
+def greetingFun(name: String, age: Int): String = {
+  s"Hi, my name is $name and I am $age years old."
+}
+
+println(greetingFun("tiger", 10))
+
+def factorial(num: Int): Int = {
+  if(num == 1 ) 1
+  else num * factorial(num-1)
+}
+
+println(factorial(5))
+
+def fib(num: Int): Int = {
+  if(num <=2) 1
+  else fib(num-1) + fib(num-2)
+}
+
+println(fib(7))
+
+def isPrime(num: Int): Boolean = {
+  def isPrimeUntil(t: Int): Boolean = {
+    if(t<=1) true
+    else num % t !=0 && isPrimeUntil(t-1)
+  }
+  
+  isPrimeUntil(num/2)
+}
+
+println(isPrime(33))
