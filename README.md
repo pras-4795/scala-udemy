@@ -52,7 +52,7 @@ Else name the args while calling the method.
 1. Infix notation works for methods with one param => mary.likes("Inception") is written as mary likes "Inception"
 2. unary or prefix notation is only allowed for +, - , ~, ! Ex: unary_- => -, unary_! => !, ==> !mary is written as mary.unary_!
 3. Postfix notation is for methods with no parameters.
-4. Apply method allow you to call the objects like they are functions
+4. Apply method allow you to call the objects like they are functions mary.apply() is written as mary()
 5. All Operators are methods Ex 1 + 2 can be called as 1.+(2)
 
 #### Genereics
