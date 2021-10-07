@@ -64,3 +64,44 @@ def fibanoci(n: Int): Int = {
 }
 
 println(fibanoci(8))
+
+class Novel(name: String, yearOfRelease: Int, author: Writer) {
+  def authorAge: Int = yearOfRelease - author.year
+  def isWrittenBy(auth: Writer): Boolean = auth == this.author
+  def copy(year: Int): Novel = new Novel(name, year, author)
+}
+
+class Writer(firstName: String, lastName: String, val year: Int) {
+  def fullName: String = firstName + " " + lastName
+}
+
+val author = new Writer("charles", "dickens", 1812)
+val novel = new Novel("Great Expectations", 1861, author)
+val imposter = new Writer("charles", "dickens", 1812)
+
+println(novel.authorAge)
+println(novel.isWrittenBy(imposter))
+
+class Counter(n: Int = 0){
+  def count = n // just declare n as val in constructor above
+  def inc: Counter = new Counter(n+1)
+  def dec: Counter = new Counter(n-1)
+  //def inc(value: Int): Counter = new Counter(n+value)
+  //def dec(value: Int): Counter = new Counter(n-value)
+  // we can also override and use recursion.
+  def inc(value: Int): Counter = {
+    if(value<=0) this
+    else inc.inc(value-1)
+  }
+  def dec(value: Int): Counter = {
+    if(value<=0) this
+    else dec.dec(value-1)
+  }
+  def print = println(n)
+}
+
+val counter = new Counter
+counter.inc.print
+counter.inc.inc.inc.print
+counter.inc(10).print
+
