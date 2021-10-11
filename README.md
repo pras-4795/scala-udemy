@@ -55,7 +55,7 @@ Else name the args while calling the method.
 4. Apply method allow you to call the objects like they are functions Ex: mary.apply() is written as mary()
 5. All Operators are methods Ex 1 + 2 can be called as 1.+(2)
 
-Sealed class
+Sealed class allows to extend a class file only within that source file.
 
 #### Genereics
 1. Covariance : `val animalList: CovariantList[Animal] = new CovariantList[Cat]`
