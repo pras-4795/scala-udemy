@@ -162,3 +162,38 @@ abstract class MyList {
   println(list.toString)
   
   //A generic list
+abstract class MyList[+A] {
+    def head: A
+    def tail: MyList[A]
+    def isEmpty: Boolean
+    def add[B >: A](element: B): MyList[B]
+    def printElements: String
+    override def toString: String = "[" + printElements + "]"
+  }
+
+  object EmptyList extends MyList[Nothing] {
+    override def head: Nothing = throw new NoSuchElementException
+    override def tail: MyList[Nothing] = throw new NoSuchElementException
+    override def isEmpty: Boolean = true
+    override def add[B >: Nothing](element: B): MyList[B] = new SomeList(element, EmptyList)
+    override def printElements: String = ""
+  }
+
+  class SomeList[+A](h: A, t: MyList[A]) extends MyList[A] {
+    override def head: A = h
+    override def tail: MyList[A] = t
+    override def isEmpty: Boolean = false
+    override def add[B >:A](element: B): MyList[B] = new SomeList(element, this)
+    override def printElements: String ={
+      if(t.isEmpty) "" + h
+      else h + " " + t.printElements
+    }
+  }
+
+  val listOfInt:MyList[Int] = new SomeList(1, new SomeList(2, new SomeList(3, EmptyList)))
+  val listOfString:MyList[String] = new SomeList("Hello", new SomeList("Scala", EmptyList))
+
+  println(listOfInt.toString)
+  println(listOfString.toString)
+  
+  // with predicates and transformers
