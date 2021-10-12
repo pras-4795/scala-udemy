@@ -66,6 +66,15 @@ Bounded Type
 1. B >:A :- B is a superset of A
 2. B <:A :- B is a subset of A
 
+#### Case Class
+1. Class parameters are fields (need not use val).
+2. println(jim) == println(jim.toString). // Syntax sugar of java
+3. equals and hash code implemented OOTB.
+4. copy method to copy the values. Ex: jim.copy(age=45) // it will mark age as 45 and copy remainaing values form jim.
+5. Companion Objects are present automatically. // Person("Jim", 34) need not use new
+6. Serializable class.
+7. Have Extractor Patterns. Can be used in pattern matching
+
 #### Pattern Matching
 1. If multiple case patterns have same expression, only the first one will return
 2. Cases are matched in order
